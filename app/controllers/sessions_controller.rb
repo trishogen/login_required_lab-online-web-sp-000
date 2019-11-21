@@ -1,15 +1,14 @@
 class SessionsController < ApplicationController
-  before_action :require_login
 
   def new
   end
 
   def create
+    if params[:name] == nil || params[:name] == ''
+      redirect_to login_path
+    else
+
+    end
   end
 
-  private
-
-  def require_login
-    return redirect_to login_path unless session.include? :name
-  end
 end
