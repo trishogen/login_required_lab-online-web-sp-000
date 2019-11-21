@@ -8,6 +8,6 @@ class SecretsController < ApplicationController
   private
 
   def require_login
-    return redirect_to login_path
+    return redirect_to login_path unless session.include? :name
   end
 end
